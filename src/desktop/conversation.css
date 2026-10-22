@@ -45,8 +45,7 @@
 .conversation-activity>summary{cursor:pointer;font-weight:600}.conversation-activity[open]>summary{margin-bottom:6px}
 .conversation-activity>div{display:flex;align-items:center;gap:7px;padding:3px 0}.conversation-activity>div>span{flex:1;min-width:0}.conversation-activity small{font-size:10px}
 .conversation-working{display:flex;align-items:center;gap:9px;font-size:11px;color:#b4cabe;margin:0 0 18px}
-.conversation-working i{width:7px;height:7px;border-radius:50%;background:#83bfa9;animation:conversation-pulse 1.2s ease-in-out infinite}
-@keyframes conversation-pulse{50%{opacity:.25}}
+.conversation-working i{width:7px;height:7px;border-radius:50%;background:#83bfa9}
 .conversation-notice{display:flex;align-items:center;gap:12px;margin:0 0 18px;padding:10px 12px;border:1px solid #5a4733;border-radius:9px;background:#221c16;font-size:11px;color:#e3c99c}
 .conversation-notice p{flex:1;margin:0;line-height:1.5}
 .conversation-jump{position:absolute;left:50%;bottom:118px;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid #705268;border-radius:16px;background:#302632;color:#efd9e6;font-size:11px;box-shadow:0 3px 14px #0006;z-index:5}
