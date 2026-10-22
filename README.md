@@ -13,7 +13,9 @@ Mr. Mak has **two connected desktop windows**:
 Keep the windows side by side, or minimize either one independently. You can
 leave Chats in view while working in Blender, a game engine or your browser.
 
-**New in 0.5: [connect your phone](#on-your-phone)** to follow the same chats,
+**New in 0.6: [edit Workspace cards yourself](docs/editable-cards.md).** Add
+images, notes and prompts in Gallery or Research views. Agents use the same
+content files. You can also [connect your phone](#on-your-phone) to follow chats,
 send ideas and dictate messages while the agents keep working on your computer.
 
 ![The two Mr. Mak windows side by side: CLI chats on the left and the My Dream Game project in Workspace on the right](docs/assets/desktop-chats-workspace.png)
@@ -127,6 +129,13 @@ the optional Live voice coordinator still uses OpenAI API billing.
 
 ## Everyday tools
 
+![An editable Gallery card with Mr. Mak character and location references, saved prompts, entry statuses and Preview/Edit controls](docs/assets/editable-cards-gallery.png)
+
+- **Cards you can edit yourself.** Choose **+ New card** for a Gallery or Research
+  page. Add images, notes, source links and prompts; drag entries into order or
+  use the arrow buttons. Preview and save without asking an agent. Agents work
+  with the same local content files, and the editor checks for conflicting edits.
+  Existing HTML reports keep their own layouts. [How editable cards work](docs/editable-cards.md).
 - **Your files, close at hand.** Browse a folder tree with Main folders or All
   files, jump to `inbox`, `projects`, `workspace`, `knowledge` and `processes`,
   and open any folder in Windows Explorer, macOS Finder or your file manager.

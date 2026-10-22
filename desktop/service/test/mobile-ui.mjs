@@ -619,6 +619,27 @@ try {
   await phone.getByRole('button', { name: 'Back to chats' }).click(); await phone.getByRole('button', { name: 'Results', exact: true }).click();
   await phone.getByRole('button', { name: /A useful report/ }).click();
   const frame = phone.frameLocator('iframe'); await frame.getByRole('heading', { name: 'Report ready' }).waitFor();
+  // Returning from Chats remounts the header menu above an already composited
+  // iframe. A visible menu must receive both clicks and taps, and stay on screen.
+  for (const width of [320, 390, 768]) {
+    await phone.setViewportSize({ width, height: 844 });
+    for (let round = 0; round < 4; round++) {
+      await phone.getByRole('button', { name: 'Chats', exact: true }).click();
+      await phone.getByRole('button', { name: 'Results', exact: true }).click();
+      await phone.getByLabel('Select report page', { exact: true }).click();
+      const menuBox = await phone.locator('.mobile-page-menu').boundingBox();
+      assert.ok(menuBox && menuBox.x >= 0 && menuBox.x + menuBox.width <= width, `Report menu stays in bounds at ${width}px`);
+      await phone.getByRole('button', { name: 'Plan', exact: true }).click();
+      await phone.getByRole('heading', { name: 'Mobile plan' }).waitFor();
+      await phone.getByLabel('Select report page', { exact: true }).tap();
+      await phone.getByRole('button', { name: 'Report', exact: true }).tap();
+      await frame.getByRole('heading', { name: 'Report ready' }).waitFor();
+    }
+  }
+  await phone.setViewportSize({ width: 390, height: 844 });
+  await phone.getByLabel('Select report page', { exact: true }).click();
+  await phone.screenshot({ path: path.join(repo, 'phone-report-menu.png') });
+  await phone.getByLabel('Select report page', { exact: true }).click();
   await frame.getByAltText('Report image', { exact: true }).click();
   await frame.getByRole('dialog', { name: 'Image preview' }).waitFor();
   const downloadEvent = phone.waitForEvent('download'); await frame.getByRole('link', { name: 'Download', exact: true }).click();
